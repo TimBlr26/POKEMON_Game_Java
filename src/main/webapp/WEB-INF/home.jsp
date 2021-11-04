@@ -12,7 +12,10 @@
 	<c:param name="title" value="msg.i18npage.title.home" />
 </c:import>
 <main>
-	<h2>Les règles puis le nom de dresseur</h2>
+	<h1>PokEni!!</h1>
+	<h2>Bienvenue dans la Partie!!!</h2>
+	<p>Les régles du jeux</p>
+	
 </main>
 <footer>
 	
