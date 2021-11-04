@@ -14,13 +14,13 @@ public class Pokemon {
 	//-------------------------------------------------------------------------
 	//Variables
 	private int id;
-	private String NickName;
-	private int PV;
-	private int Attack;
-	private int Defence;
-	private int Speed;
-	private int TypePoke;
-	private int Capacity;
+	private String nickName;
+	private int pV;
+	private int attack;
+	private int defence;
+	private int speed;
+	private int typePoke;
+	private int capacity;
 
 	
 	//-------------------------------------------------------------------------
@@ -50,19 +50,27 @@ public class Pokemon {
 	 */
 	public Pokemon(String nickName, int pV, int attack, int defence, int speed, int typePoke, int capacity) {
 		super();
-		NickName = nickName;
-		PV = pV;
-		Attack = attack;
-		Defence = defence;
-		Speed = speed;
-		TypePoke = typePoke;
-		Capacity = capacity;
+		this.nickName = nickName;
+		this.pV = pV;
+		this.attack = attack;
+		this.defence = defence;
+		this.speed = speed;
+		this.typePoke = typePoke;
+		this.capacity = capacity;
+	}
+	
+	public Pokemon(int id,String nickName, int pV, int attack, int defence, int speed, int typePoke, int capacity) {
+		super();
+		this.id = id;
+		this.nickName = nickName;
+		this.pV = pV;
+		this.attack = attack;
+		this.defence = defence;
+		this.speed = speed;
+		this.typePoke = typePoke;
+		this.capacity = capacity;
 	}
 
-	
-	//-------------------------------------------------------------------------
-	//Accesseurs
-	
 	/**
 	 * @return the id
 	 */
@@ -81,110 +89,111 @@ public class Pokemon {
 	 * @return the nickName
 	 */
 	public String getNickName() {
-		return NickName;
+		return nickName;
 	}
 
 	/**
 	 * @param nickName the nickName to set
 	 */
 	public void setNickName(String nickName) {
-		NickName = nickName;
+		this.nickName = nickName;
 	}
 
 	/**
 	 * @return the pV
 	 */
-	public int getPV() {
-		return PV;
+	public int getpV() {
+		return pV;
 	}
 
 	/**
 	 * @param pV the pV to set
 	 */
-	public void setPV(int pV) {
-		PV = pV;
+	public void setpV(int pV) {
+		this.pV = pV;
 	}
 
 	/**
 	 * @return the attack
 	 */
 	public int getAttack() {
-		return Attack;
+		return attack;
 	}
 
 	/**
 	 * @param attack the attack to set
 	 */
 	public void setAttack(int attack) {
-		Attack = attack;
+		this.attack = attack;
 	}
 
 	/**
 	 * @return the defence
 	 */
 	public int getDefence() {
-		return Defence;
+		return defence;
 	}
 
 	/**
 	 * @param defence the defence to set
 	 */
 	public void setDefence(int defence) {
-		Defence = defence;
+		this.defence = defence;
 	}
 
 	/**
 	 * @return the speed
 	 */
 	public int getSpeed() {
-		return Speed;
+		return speed;
 	}
 
 	/**
 	 * @param speed the speed to set
 	 */
 	public void setSpeed(int speed) {
-		Speed = speed;
+		this.speed = speed;
 	}
 
 	/**
 	 * @return the typePoke
 	 */
 	public int getTypePoke() {
-		return TypePoke;
+		return typePoke;
 	}
 
 	/**
 	 * @param typePoke the typePoke to set
 	 */
 	public void setTypePoke(int typePoke) {
-		TypePoke = typePoke;
+		this.typePoke = typePoke;
 	}
 
 	/**
 	 * @return the capacity
 	 */
 	public int getCapacity() {
-		return Capacity;
+		return capacity;
 	}
 
 	/**
 	 * @param capacity the capacity to set
 	 */
 	public void setCapacity(int capacity) {
-		Capacity = capacity;
+		this.capacity = capacity;
 	}
 
+	@Override
+	public String toString() {
+		return "Pokemon [id=" + id + ", nickName=" + nickName + ", pV=" + pV + ", attack=" + attack + ", defence="
+				+ defence + ", speed=" + speed + ", typePoke=" + typePoke + ", capacity=" + capacity + "]";
+	}
 
 	
 	//-------------------------------------------------------------------------
-	//Override
+	//Accesseurs
 	
-	@Override
-	public String toString() {
-		return "Pokemon [id=" + id + ", NickName=" + NickName + ", PV=" + PV + ", Attack=" + Attack + ", Defence="
-				+ Defence + ", Speed=" + Speed + ", TypePoke=" + TypePoke + ", Capacity=" + Capacity + "]";
-	}
+
 	
 	
 	
