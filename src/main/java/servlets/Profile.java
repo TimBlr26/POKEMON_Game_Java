@@ -1,26 +1,23 @@
 package servlets;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import beans.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Profil
  */
-@WebServlet("/profil")
-public class Profil extends HttpServlet {
+@WebServlet("/profile")
+public class Profile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public Profil() {
+    public Profile() {
         // TODO Auto-generated constructor stub
     }
 
@@ -28,10 +25,6 @@ public class Profil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
-		int age = (LocalDate.now().getYear() - user.getBirthday().getYear());
-		request.setAttribute("age", age);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/profil.jsp").forward(request, response);
 	}
 
@@ -39,7 +32,8 @@ public class Profil extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.getSession().setAttribute("name", request.getParameter("name"));
+		System.out.println(request.getParameter("name"));
 		doGet(request, response);
 	}
 
