@@ -14,10 +14,11 @@ public class Capacity {
 	//-------------------------------------------------------------------------
 	//Variables
 	private int id;
-	private String CapName;
-	private int TypePoke;
-	private int CapHeal;
-	private int CapAttack;
+	private String capName;
+	private int typePoke;
+	private int capHeal;
+	private int capAttack;
+
 
 	
 	
@@ -28,15 +29,14 @@ public class Capacity {
 	//-------------------------------------------------------------------------
 	//Constructeurs
 	
+
 	/**
 	 * 
 	 */
 	public Capacity() {
 		super();
 	}
-
-
-
+	
 	/**
 	 * @param capName
 	 * @param typePoke
@@ -45,24 +45,24 @@ public class Capacity {
 	 */
 	public Capacity(String capName, int typePoke, int capHeal, int capAttack) {
 		super();
-		CapName = capName;
-		TypePoke = typePoke;
-		CapHeal = capHeal;
-		CapAttack = capAttack;
+		this.capName = capName;
+		this.typePoke = typePoke;
+		this.capHeal = capHeal;
+		this.capAttack = capAttack;
 	}
+
 
 
 	//-------------------------------------------------------------------------
 	//Accesseurs
 	
+
 	/**
 	 * @return the id
 	 */
 	public int getId() {
 		return id;
 	}
-
-
 
 	/**
 	 * @param id the id to set
@@ -71,78 +71,61 @@ public class Capacity {
 		this.id = id;
 	}
 
-
-
 	/**
 	 * @return the capName
 	 */
 	public String getCapName() {
-		return CapName;
+		return capName;
 	}
-
-
 
 	/**
 	 * @param capName the capName to set
 	 */
 	public void setCapName(String capName) {
-		CapName = capName;
+		this.capName = capName;
 	}
-
-
 
 	/**
 	 * @return the typePoke
 	 */
 	public int getTypePoke() {
-		return TypePoke;
+		return typePoke;
 	}
-
-
 
 	/**
 	 * @param typePoke the typePoke to set
 	 */
 	public void setTypePoke(int typePoke) {
-		TypePoke = typePoke;
+		this.typePoke = typePoke;
 	}
-
-
 
 	/**
 	 * @return the capHeal
 	 */
 	public int getCapHeal() {
-		return CapHeal;
+		return capHeal;
 	}
-
-
 
 	/**
 	 * @param capHeal the capHeal to set
 	 */
 	public void setCapHeal(int capHeal) {
-		CapHeal = capHeal;
+		this.capHeal = capHeal;
 	}
-
-
 
 	/**
 	 * @return the capAttack
 	 */
 	public int getCapAttack() {
-		return CapAttack;
+		return capAttack;
 	}
-
-
 
 	/**
 	 * @param capAttack the capAttack to set
 	 */
 	public void setCapAttack(int capAttack) {
-		CapAttack = capAttack;
+		this.capAttack = capAttack;
 	}
-
 
 
 
@@ -151,19 +134,12 @@ public class Capacity {
 	//-------------------------------------------------------------------------
 	//Override
 	
+	
 	@Override
 	public String toString() {
-		return "Capacity [id=" + id + ", CapName=" + CapName + ", TypePoke=" + TypePoke + ", CapHeal=" + CapHeal
-				+ ", CapAttack=" + CapAttack + "]";
+		return "Capacity [id=" + id + ", capName=" + capName + ", typePoke=" + typePoke + ", capHeal=" + capHeal
+				+ ", capAttack=" + capAttack + "]";
 	}
-	
-
-
-
-	
-	
-	
-	
 	
 	
 	
