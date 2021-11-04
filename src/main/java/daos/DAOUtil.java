@@ -3,6 +3,7 @@
  */
 package daos;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -17,7 +18,7 @@ public class DAOUtil {
 			
 			// Etablir la connexion
 			connection = DriverManager.getConnection(
-					"jdbc:sqlserver://localhost;databaseName=user_manager","sa","Pa$$w0rd"
+				"jdbc:sqlserver://localhost;databaseName=BDD_Pokemon","sa","Pa$$w0rd"
 			);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
