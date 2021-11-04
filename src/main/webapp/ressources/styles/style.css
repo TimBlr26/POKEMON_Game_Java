@@ -19,7 +19,7 @@ html, body {
 	flex-flow: column nowrap;
 	justify-content: space-between;
 	align-items: center;
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: rgba(255, 255, 255, 0.6);
 }
 
 header {
@@ -57,10 +57,13 @@ footer {
 h1 {
 	text-decoration: underline;
 }
-
+input[type="text"] {
+	width: 20vw;
+}
 button {
 	padding: 5px;
-	background-color: navy;
-	color: aqua;
-	border-radius: 20px;
+	background-color: gold;
+	color: blue;
+	border: 2px blue solid;
+	border-radius: -20px;
 }

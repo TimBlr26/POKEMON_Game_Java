@@ -32,7 +32,6 @@
 				<button type="submit">Valider</button>
 			</form>
 		</main>
-		<footer> </footer>
 	</div>
 </body>
 </html>

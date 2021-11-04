@@ -33,7 +33,6 @@ public class Profile extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().setAttribute("name", request.getParameter("name"));
-		System.out.println(request.getParameter("name"));
 		doGet(request, response);
 	}
 
