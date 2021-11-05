@@ -3,6 +3,8 @@
  */
 package beans;
 
+import com.oracle.wls.shaded.org.apache.xpath.operations.String;
+
 /**
  * @author mcharpentier2021
  *4 nov. 2021
