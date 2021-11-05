@@ -6,6 +6,8 @@ package services;
 import java.util.List;
 
 import beans.Pokemon;
+import daos.Capacity;
+import daos.String;
 
 
 
@@ -22,10 +24,18 @@ public interface PokeService {
 	public String create(Pokemon PokemonToCreate);
 
 	public Pokemon findByNickname(String nickname);
-	/**
-	 * @param nextInt
-	 */
+
 	public String delete(int id);
+	/**
+	 * 
+	 */
+	public List<Capacity> findAllCap();
+	
+	public Capacity findByIdCap(int id);
+	
+	public String createCap(Capacity CapacityToCreate);
+	
+	public String deleteCap(int CapacityIdToDelete);
 
 
 }

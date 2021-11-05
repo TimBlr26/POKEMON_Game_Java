@@ -48,5 +48,30 @@ public class PokeServiceImpl implements PokeService {
 		return pokeDAO.findByNickname(nickname);
 	}
 
+	@Override
+	public List<Capacity> findAllCap() {
+		PokeDAO capDAO = new PokeDAOImpl();
+		List<Capacity> capList = capDAO.findAllCap();
+		return capList;
+	}
+
+	@Override
+	public Capacity findByIdCap(int id) {
+		PokeDAO capDAO = new PokeDAOImpl();
+		return capDAO.findByIdCap(id);
+	}
+	
+
+	@Override
+	public String createCap(Capacity CapacityToCreate) {
+		PokeDAO capDAO = new PokeDAOImpl();
+		return capDAO.createCap(CapacityToCreate);
+	}
+
+	@Override
+	public String deleteCap(int CapacityIdToDelete) {
+		PokeDAO capDAO = new PokeDAOImpl();
+		return capDAO.deleteCap(CapacityIdToDelete);
+	}
 
 }
