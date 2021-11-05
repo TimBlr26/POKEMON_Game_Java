@@ -30,13 +30,7 @@
 			<select name="capacity" id="capacity">
 					<option disabled>Choisissez une capacité</option>
 					<c:forEach items="${ capacityList }" var="capacity" varStatus="status">
-						<option selected="${sessionScope.choosenCapacity.id == capacity.id }" value=${ capacity.id }><c:out value="${ capacity.CapName }" />
-							<c:choose>
-								<c:when test="${ pokemon.typePoke == 1 }"> : Fire</c:when>
-								<c:when test="${ pokemon.typePoke == 2 }"> : Water</c:when>
-								<c:when test="${ pokemon.typePoke == 3 }"> : Plant</c:when>
-								<c:otherwise>Autre</c:otherwise>
-							</c:choose>
+						<option value=${ capacity.id }><c:out value="${ capacity.capName }" />
 						</option>
 					</c:forEach>
 					

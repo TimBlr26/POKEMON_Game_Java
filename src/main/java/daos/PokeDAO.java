@@ -2,6 +2,7 @@ package daos;
 
 import java.util.List;
 
+import beans.Capacity;
 import beans.Pokemon;
 
 
@@ -19,4 +20,6 @@ public interface PokeDAO {
 	public String createCap(Capacity CapacityToCreate);
 	
 	public String deleteCap(int CapacityIdToDelete);
+	
+	public List<Capacity> findByTypeCap(int id);
 }

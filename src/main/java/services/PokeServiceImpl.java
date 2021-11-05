@@ -5,6 +5,7 @@ package services;
 
 import java.util.List;
 
+import beans.Capacity;
 import beans.Pokemon;
 import daos.PokeDAO;
 import daos.PokeDAOImpl;
@@ -72,6 +73,13 @@ public class PokeServiceImpl implements PokeService {
 	public String deleteCap(int CapacityIdToDelete) {
 		PokeDAO capDAO = new PokeDAOImpl();
 		return capDAO.deleteCap(CapacityIdToDelete);
+	}
+	
+	@Override
+	public List<Capacity> findByTypeCap(int id) {
+		PokeDAO capDAO = new PokeDAOImpl();
+		List<Capacity> capList = capDAO.findByTypeCap(id);
+		return capList;
 	}
 
 }

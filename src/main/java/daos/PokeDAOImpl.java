@@ -367,10 +367,11 @@ public class PokeDAOImpl implements PokeDAO {
 	}
 
 	@Override
-	public Capacity findByTypeCap(int id) {
+	public List<Capacity> findByTypeCap(int id) {
 		System.out.println("[CapacityDAOImpl findByTypeCap]");
 		// Etape 1 : Création du User
-		Capacity capacity = null;
+		List<Capacity> capacityList = new ArrayList<Capacity>();
+		
 		
 		// Etape 2 : Connexion à la BDD
 		Connection connection = DAOUtil.getConnection();
@@ -389,13 +390,14 @@ public class PokeDAOImpl implements PokeDAO {
 			// Etape 5 : Traiter les données
 			// Tant que j'ai des lignes dans les résultats
 			while(resultSet.next()) {
-				capacity = new Capacity(
-						resultSet.getInt("CapacityId"),
+				Capacity capacity = new Capacity(
+//						resultSet.getInt("CapacityId"),
 						resultSet.getString("CapName"),
 						resultSet.getInt("TypePoke"),
 						resultSet.getInt("CapHeal"),
 						resultSet.getInt("CapAttack")
 				);
+				capacityList.add(capacity);
 			}
 			
 			// Etape 6 : Fermeture de la connexion à la BDD
@@ -405,6 +407,6 @@ public class PokeDAOImpl implements PokeDAO {
 			e.printStackTrace();
 		}
 		
-		return capacity;
+		return capacityList;
 	}
 }
