@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -12,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import services.PokeService;
 import services.PokeServiceImpl;
+import utils.FightOn;
 
 
 /**
@@ -55,12 +57,28 @@ public class Fight extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Pokemon> pokemonList = pokeService.findAll();
+		List<String> fightOn;
+		if (request.getSession().getAttribute("fightOn") == null ) {
+			fightOn = new ArrayList<String>();
+		} else {
+			fightOn = (List<String>) request.getSession().getAttribute("fightOn");
+		}
 //		fightForm.setChoosenPokemon(Integer.valueOf(request.getParameter("choosenPokemon")));
 //		System.out.println(fightForm);
-		Pokemon choosenPokemon = pokeService.findById(Integer.valueOf(request.getParameter("choosenPokemon")));
-		request.getSession().setAttribute("choosenPokemon", choosenPokemon);
-		Pokemon randomIAPokemon = pokeService.findById(ran.nextInt(pokemonList.size()) +1 );
-		request.getSession().setAttribute("randomIAPokemon", randomIAPokemon);
+		if (request.getParameter("fight").equals("fight")) {
+			fightOn.add("This is fight!!!");
+			if (!request.getParameter("userAction").equals("none")) {
+				System.out.println(request.getParameter("userAction"));
+			String roundResult = "un round est passé, ton pokemon ";
+			fightOn.add(roundResult);
+			}
+			request.getSession().setAttribute("fightOn", fightOn);
+		} else {
+			Pokemon choosenPokemon = pokeService.findById(Integer.valueOf(request.getParameter("choosenPokemon")));
+			request.getSession().setAttribute("choosenPokemon", choosenPokemon);
+			Pokemon randomIAPokemon = pokeService.findById(ran.nextInt(pokemonList.size()) +1 );
+			request.getSession().setAttribute("randomIAPokemon", randomIAPokemon);
+		}
 		
 		
 		doGet(request, response);
