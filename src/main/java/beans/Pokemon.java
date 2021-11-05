@@ -70,6 +70,20 @@ public class Pokemon {
 		this.typePoke = typePoke;
 		this.capacity = capacity;
 	}
+	
+	public String findType(int typePoke) {
+		String typName="";
+		if(typePoke==1) {
+			typName="Fire";
+		}
+		if(typePoke==2) {
+			typName="Water";
+		}
+		if(typePoke==3) {
+			typName="Plant";
+		}
+		return typName;
+	}
 
 	/**
 	 * @return the id
