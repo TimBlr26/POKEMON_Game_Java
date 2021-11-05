@@ -45,7 +45,7 @@ public class PokeDAOImpl implements PokeDAO {
 					resultSet.getInt("Defence"),
 					resultSet.getInt("Speed"),
 					resultSet.getInt("TypePoke"),
-					resultSet.getInt("Capacity")
+					resultSet.getInt("CapacityId")
 				);
 				
 				userList.add(pokemon);
@@ -92,7 +92,7 @@ public class PokeDAOImpl implements PokeDAO {
 						resultSet.getInt("Defence"),
 						resultSet.getInt("Speed"),
 						resultSet.getInt("TypePoke"),
-						resultSet.getInt("Capacity")
+						resultSet.getInt("CapacityId")
 				);
 			}
 			
@@ -116,7 +116,7 @@ public class PokeDAOImpl implements PokeDAO {
 		Connection connection = DAOUtil.getConnection();
 		
 		// Etape 3 : Préparation de notre requete
-		String request = "INSERT INTO Pokedex (Nickname, PV, Attack,Defence,Speed,TypePoke,Capacity) VALUES (?,?,?,?,?,?,?)";
+		String request = "INSERT INTO Pokedex (Nickname, PV, Attack,Defence,Speed,TypePoke,CapacityId) VALUES (?,?,?,?,?,?,?)";
 		System.out.println("[PokemonDAOImpl String request]");
 		try {
 			// Etape 4 : Exécuter la requete
@@ -203,7 +203,7 @@ public class PokeDAOImpl implements PokeDAO {
 						resultSet.getInt("Defence"),
 						resultSet.getInt("Speed"),
 						resultSet.getInt("TypePoke"),
-						resultSet.getInt("Capacity")
+						resultSet.getInt("CapacityId")
 				);
 			}
 			

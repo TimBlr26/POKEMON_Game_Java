@@ -16,7 +16,7 @@ public interface UserService {
 	 * @return 
 	 * 
 	 */
-	public List<User> findAll();
+	public List<Pokemon> findAll();
 
 	public User findById(int idUser);
 	
