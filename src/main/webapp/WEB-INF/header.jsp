@@ -1,7 +1,7 @@
 <header>
 	<nav>
 		<a href="profile"><button>Profil</button></a> 
-		<a href="pokemons"><button>Pokémons</button></a>
+		<a href="pokemon"><button>Pokémon</button></a>
 		<a href="fight"><button>Combats</button></a>
 	</nav>
 

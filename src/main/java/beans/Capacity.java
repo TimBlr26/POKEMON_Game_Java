@@ -3,6 +3,8 @@
  */
 package beans;
 
+//import com.oracle.wls.shaded.org.apache.xpath.operations.String;
+
 /**
  * @author mcharpentier2021
  *4 nov. 2021
@@ -50,6 +52,15 @@ public class Capacity {
 		this.capHeal = capHeal;
 		this.capAttack = capAttack;
 	}
+	public Capacity(int id, String capName, int typePoke, int capHeal, int capAttack) {
+		super();
+		this.id = id;
+		this.capName = capName;
+		this.typePoke = typePoke;
+		this.capHeal = capHeal;
+		this.capAttack = capAttack;
+	}
+
 
 
 
@@ -127,6 +138,14 @@ public class Capacity {
 		this.capAttack = capAttack;
 	}
 
+	@Override
+	public String toString() {
+		return "Capacity [id=" + id + ", capName=" + capName + ", typePoke=" + typePoke + ", capHeal=" + capHeal
+				+ ", capAttack=" + capAttack + "]";
+	}
+
+
+
 
 
 	
@@ -135,11 +154,7 @@ public class Capacity {
 	//Override
 	
 	
-	@Override
-	public String toString() {
-		return "Capacity [id=" + id + ", capName=" + capName + ", typePoke=" + typePoke + ", capHeal=" + capHeal
-				+ ", capAttack=" + capAttack + "]";
-	}
+	
 	
 	
 	

@@ -1,45 +1,42 @@
 /**
  * 
  */
-package beans;
+package forms;
 
+import java.util.Random;
 
 /**
  * @author mcharpentier2021
- *4 nov. 2021
-beans
+ *5 nov. 2021
+forms
 POKEMON_Game_Java
-14:45:51
+09:18:49
  */
-public class Pokemon {
+public class PokemonForm {
 	//-------------------------------------------------------------------------
 	//Variables
 	private int id;
-	private String nickName;
-	private int pV;
-	private int attack;
-	private int defence;
-	private int speed;
-	private int typePoke;
-	private int capacity;
+	private String nickName = "Prenom de votre pokémon";
+	private int pV = 100;
+	private int attack = CompetenceChoice(40);
+	private int defence = CompetenceChoice(50);
+	private int speed = CompetenceChoice(60);
+	private int typePoke = 0;
+	private int capacity = 1;
+	
+	private boolean isError = false;
+	private String result;
+	private String errorMessage;
+
 	
 	
 	//-------------------------------------------------------------------------
 	//Méthodes
 	
-
-	
-	
 	
 	//-------------------------------------------------------------------------
 	//Constructeurs
 	
-	/**
-	 * 
-	 */
-	public Pokemon() {
-		super();
-	}
 	
 	/**
 	 * @param nickName
@@ -49,8 +46,12 @@ public class Pokemon {
 	 * @param speed
 	 * @param typePoke
 	 * @param capacity
+	 * @param isError
+	 * @param result
+	 * @param errorMessage
 	 */
-	public Pokemon(String nickName, int pV, int attack, int defence, int speed, int typePoke, int capacity) {
+	public PokemonForm(String nickName, int pV, int attack, int defence, int speed, int typePoke, int capacity,
+			boolean isError, String result, String errorMessage) {
 		super();
 		this.nickName = nickName;
 		this.pV = pV;
@@ -59,33 +60,36 @@ public class Pokemon {
 		this.speed = speed;
 		this.typePoke = typePoke;
 		this.capacity = capacity;
+		this.isError = isError;
+		this.result = result;
+		this.errorMessage = errorMessage;
 	}
-	
-	public Pokemon(int id,String nickName, int pV, int attack, int defence, int speed, int typePoke, int capacity) {
+
+
+
+	/**
+	 * 
+	 */
+	public PokemonForm() {
 		super();
-		this.id = id;
-		this.nickName = nickName;
-		this.pV = pV;
-		this.attack = attack;
-		this.defence = defence;
-		this.speed = speed;
-		this.typePoke = typePoke;
-		this.capacity = capacity;
+	}
+
+	
+	
+	//-------------------------------------------------------------------------
+	//Méthodes
+	
+	public int CompetenceChoice(int limite) {
+		///PokemonForm pokemonForm = new PokemonForm();
+		Random ra = new Random();
+		int choiceA =limite + ra.nextInt(101-limite);
+		return choiceA;
 	}
 	
-	public String findType(int typePoke) {
-		String typName="";
-		if(typePoke==1) {
-			typName="Fire";
-		}
-		if(typePoke==2) {
-			typName="Water";
-		}
-		if(typePoke==3) {
-			typName="Plant";
-		}
-		return typName;
-	}
+	
+	//-------------------------------------------------------------------------
+	//Accesseurs
+	
 
 	/**
 	 * @return the id
@@ -94,12 +98,16 @@ public class Pokemon {
 		return id;
 	}
 
+
+
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
 
 	/**
 	 * @return the nickName
@@ -108,12 +116,16 @@ public class Pokemon {
 		return nickName;
 	}
 
+
+
 	/**
 	 * @param nickName the nickName to set
 	 */
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
 	}
+
+
 
 	/**
 	 * @return the pV
@@ -122,12 +134,16 @@ public class Pokemon {
 		return pV;
 	}
 
+
+
 	/**
 	 * @param pV the pV to set
 	 */
 	public void setpV(int pV) {
 		this.pV = pV;
 	}
+
+
 
 	/**
 	 * @return the attack
@@ -136,12 +152,16 @@ public class Pokemon {
 		return attack;
 	}
 
+
+
 	/**
 	 * @param attack the attack to set
 	 */
 	public void setAttack(int attack) {
 		this.attack = attack;
 	}
+
+
 
 	/**
 	 * @return the defence
@@ -150,12 +170,16 @@ public class Pokemon {
 		return defence;
 	}
 
+
+
 	/**
 	 * @param defence the defence to set
 	 */
 	public void setDefence(int defence) {
 		this.defence = defence;
 	}
+
+
 
 	/**
 	 * @return the speed
@@ -164,12 +188,16 @@ public class Pokemon {
 		return speed;
 	}
 
+
+
 	/**
 	 * @param speed the speed to set
 	 */
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
+
+
 
 	/**
 	 * @return the typePoke
@@ -178,12 +206,16 @@ public class Pokemon {
 		return typePoke;
 	}
 
+
+
 	/**
 	 * @param typePoke the typePoke to set
 	 */
 	public void setTypePoke(int typePoke) {
 		this.typePoke = typePoke;
 	}
+
+
 
 	/**
 	 * @return the capacity
@@ -192,6 +224,8 @@ public class Pokemon {
 		return capacity;
 	}
 
+
+
 	/**
 	 * @param capacity the capacity to set
 	 */
@@ -199,18 +233,71 @@ public class Pokemon {
 		this.capacity = capacity;
 	}
 
-	@Override
-	public String toString() {
-		return "Pokemon [id=" + id + ", nickName=" + nickName + ", pV=" + pV + ", attack=" + attack + ", defence="
-				+ defence + ", speed=" + speed + ", typePoke=" + typePoke + ", capacity=" + capacity + "]";
+
+
+	/**
+	 * @return the isError
+	 */
+	public boolean isError() {
+		return isError;
 	}
+
+
+
+	/**
+	 * @param isError the isError to set
+	 */
+	public void setError(boolean isError) {
+		this.isError = isError;
+	}
+
+
+
+	/**
+	 * @return the result
+	 */
+	public String getResult() {
+		return result;
+	}
+
+
+
+	/**
+	 * @param result the result to set
+	 */
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+
+
+	/**
+	 * @return the errorMessage
+	 */
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+
+
+	/**
+	 * @param errorMessage the errorMessage to set
+	 */
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
 
 	
 	//-------------------------------------------------------------------------
-	//Accesseurs
-	
+	//Override
+	@Override
+	public String toString() {
+		return "PokemonForm [id=" + id + ", nickName=" + nickName + ", pV=" + pV + ", attack=" + attack + ", defence="
+				+ defence + ", speed=" + speed + ", typePoke=" + typePoke + ", capacity=" + capacity + ", isError="
+				+ isError + ", result=" + result + ", errorMessage=" + errorMessage + "]";
+	}
 
-	
 	
 	
 	
