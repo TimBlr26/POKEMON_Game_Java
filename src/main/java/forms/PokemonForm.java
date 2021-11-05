@@ -22,7 +22,7 @@ public class PokemonForm {
 	private int defence = CompetenceChoice(50);
 	private int speed = CompetenceChoice(60);
 	private int typePoke = 0;
-	private int capacity = 0;
+	private int capacity = 1;
 	
 	private boolean isError = false;
 	private String result;
@@ -75,6 +75,9 @@ public class PokemonForm {
 	}
 
 	
+	
+	//-------------------------------------------------------------------------
+	//Méthodes
 	
 	public int CompetenceChoice(int limite) {
 		///PokemonForm pokemonForm = new PokemonForm();

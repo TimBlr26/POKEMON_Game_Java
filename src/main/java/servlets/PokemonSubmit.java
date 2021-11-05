@@ -2,12 +2,15 @@ package servlets;
 
 import java.io.IOException;
 
+import beans.Pokemon;
 import forms.PokemonForm;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import services.PokeService;
+import services.PokeServiceImpl;
 
 /**
  * Servlet implementation class PokemonSubmit
@@ -46,10 +49,11 @@ public class PokemonSubmit extends HttpServlet {
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			//-----Variables
 			PokemonForm pokemonForm = new PokemonForm();
+			PokeService pokeService = new PokeServiceImpl();
 			
 			
 			//Récupération des infos
-			String nickName = request.getParameter("nickName");
+			String nickName = request.getParameter("nickname");
 			int typePoke = Integer.parseInt(request.getParameter("typePoke"));
 
 			
@@ -57,7 +61,16 @@ public class PokemonSubmit extends HttpServlet {
 			pokemonForm.setNickName(nickName);
 			pokemonForm.setTypePoke(typePoke);
 							
-			doGet(request, response);
+			// Gestion des erreurs
+			if (pokemonForm.isError()) {
+				request.setAttribute("inscriptionForm", pokemonForm);
+				doGet(request, response);
+			} else {
+				//Création user
+				Pokemon newPokemon = new Pokemon(nickName, pokemonForm.getpV(), pokemonForm.getAttack(), pokemonForm.getDefence(), pokemonForm.getSpeed(), typePoke, pokemonForm.getCapacity());
+				pokeService.create(newPokemon);
+				response.sendRedirect("pokemon");
+			}
 			
 		}
 		

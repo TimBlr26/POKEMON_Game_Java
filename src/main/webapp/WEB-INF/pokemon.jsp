@@ -24,7 +24,23 @@
 			<input type="radio" name="typePoke" id="typePoke" value="2"/>
 			<label for="typePoke">Pokémon Plante </label>
 			<input type="radio" name="typePoke" id="typePoke" value="3"/>
-			<p>La capacité de votre pokémon est : ... .</p>
+		</div>
+		<div>
+			<label for="capacity">Capacité de votre Pokémon: </label>
+			<select name="capacity" id="capacity">
+					<option disabled>Choisissez une capacité</option>
+					<c:forEach items="${ capacityList }" var="capacity" varStatus="status">
+						<option selected="${sessionScope.choosenCapacity.id == capacity.id }" value=${ capacity.id }><c:out value="${ capacity.CapName }" />
+							<c:choose>
+								<c:when test="${ pokemon.typePoke == 1 }"> : Fire</c:when>
+								<c:when test="${ pokemon.typePoke == 2 }"> : Water</c:when>
+								<c:when test="${ pokemon.typePoke == 3 }"> : Plant</c:when>
+								<c:otherwise>Autre</c:otherwise>
+							</c:choose>
+						</option>
+					</c:forEach>
+					
+				</select>
 		</div>
 		<div>
 			<p>Point de vie de votre Pokémon : ${ pokemonForm.pV }</p>
